@@ -4,7 +4,7 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 
-app.get('/chat', function(req, res) {
+app.get('/', function(req, res) {
     res.render('index.ejs');
 });
 var online_users = 1
