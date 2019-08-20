@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<section>
+            <div style="float:left;width:150px;border-right:1px solid black;height:650px;padding:15px;overflow:scroll-y;
+
+">
+                        <b>USERS</b>
+                            <div id="users2">
+                                            <p id="user2"></p>
+                                                </div>
+            </div>
+
+    </section>
+<html>
+	<head>
+	  <h1 style="text-align:center;">R4Y Messages</h1> <h2>Users Online : <b id="users"></b></h2>
+		
+    <title>Chat</title>
+    <body>
+       </body>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+	.form-container .cancel {
+  background-color: red;
+}
+	server { color:#026e00 }
+	section {float:right; color:#ffffff; background: #5e5e5e; }
+        body { background: #292727; font: 13px Helvetica, Arial; color: #ffffff; width: 100%; }
+        form { background: #393a3b; padding: 3px; position: fixed; bottom: 0; width: 100%; border-color: #000; border-top-style: solid; border-top-width: 1px;}
+        form input { border-style: solid; border-width: 1px; padding: 10px; width: 85%; margin-right: .5%; }
+        form button { width: 9%; background: rgb(187, 193, 199); border: none; padding: 10px; margin-left: 2%; }
+        #messages { list-style-type: none; margin: 0; padding: 0; }
+        #messages li { padding: 5px 10px; }
+        #messages li:nth-child(odd) { background: #1f1e1e; width: 95%}
+    </style>
+    <script src="../../socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form action="/" method="POST" id="chatForm">
+	<!--h1>Login</h1-->
+	
+	<label for="email"><b>Username</b></label>
+      <input id="txt" autocomplete="off" autofocus="on" oninput="isTyping()" placeholder="type your username here..." required />
+      <!input id="pass" autocomplete="off" autofocus="on" oninput="isTyping()" placeholder="type your password here..." /-->
+     <button>Send</button>
+     <!--button type="button" class="btn cancel" onclick="closeForm()">Close</button-->
+	
+    </form>
+    <script>
+            var socket = io.connect('https://localhost:8080/chat');
+	var userList = [];
+
+    socket.on('update', function (users){
+        userList = users;
+        $('#user2').empty();
+        for(var i=0; i<userList.length; i++) {
+            $('#user2').append("<h1>" + userList[i] + "</h1>"); 
+        }
+    });
+	socket.on('online_users', function(data){
+        $('#users').text(data);
+    });
+            // submit text message without reload/refresh the page
+            $('form').submit(function(e){
+                e.preventDefault(); // prevents page reloading
+                socket.emit('chat_message', $('#txt').val());
+                $('#txt').val('');
+                return false;
+            });
+            // append the chat text message
+            socket.on('chat_message', function(msg){
+                $('#messages').append($('<li>').html(msg));
+            });
+            // append text if someone is online
+            socket.on('is_online', function(username) {
+                $('#messages').append($('<li>').html(username));
+            });
+            // ask username
+            var username = prompt('type your username');
+            socket.emit('username', username);
+    </script>
+  </body>
+
+<script src="index.js"></script>
+</html>
