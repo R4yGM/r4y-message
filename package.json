@@ -4,7 +4,8 @@
   "dependencies" : {  
     "connect" : "1.8.5",  
     "express" : "2.5.8",  
-    "socket.io" : "0.8.7"
+    "socket.io" : "2.2.0",
+    "http" : "0.0.0"
   },
   "description": "a chat made with Nodejs, Socket.io and HTML5",
   "main": "index.js",
