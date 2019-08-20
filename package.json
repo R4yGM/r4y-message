@@ -12,10 +12,6 @@
   "scripts": {
     "start": "node index.js"
   },
-  "engines" : {  
-    "node": "8.10.0",
-    "npm": "3.5.2"
- },
   "author": "R4yan",
   "license": "ISC"
 }
