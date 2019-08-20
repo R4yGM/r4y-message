@@ -9,9 +9,6 @@
   },
   "description": "a chat made with Nodejs, Socket.io and HTML5",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
   "author": "R4yan",
   "license": "ISC"
 }
