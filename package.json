@@ -14,4 +14,8 @@
   },
   "author": "R4yan",
   "license": "ISC"
+  "engines": {  
+    "node": "8.10.0"  
+  , "npm": "3.5.2"
+ }
 }
