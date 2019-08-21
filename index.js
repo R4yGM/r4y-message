@@ -1,7 +1,14 @@
-const express = require('express');
+/*const express = require('express');
 const app = express();
 const http = require('http').Server(app);
-const io = require('socket.io')(http);
+//const io = require('socket.io')(http);
+const io = require('socket.io')(http);*/
+var express = require('express'),
+    app = express(),
+    server = require('http').createServer(app),
+    io = require('socket.io').listen(server),
+
+server.listen(process.env.PORT || 3000);
 
 
 app.get('/', function(req, res) {
