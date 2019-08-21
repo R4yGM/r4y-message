@@ -1,12 +1,9 @@
-/*const express = require('express');
+const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 //const io = require('socket.io')(http);
-const io = require('socket.io')(http);*/
-var express = require('express'),
-    app = express(),
-    server = require('http').createServer(app),
-    io = require('socket.io').listen(server),
+const io = require('socket.io')(http);
+
 
 server.listen(process.env.PORT || 3000);
 
@@ -62,6 +59,6 @@ io.sockets.on('connection', function(socket) {
 //});
 
 
-//http.listen((process.env.PORT || 3000), function(){
-//  console.log('listening on *:3000');
-//});
+http.listen((process.env.PORT || 3000), function(){
+ console.log('listening on *:3000');
+});
