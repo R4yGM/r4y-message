@@ -65,8 +65,7 @@
             $('form').submit(function(e){
                 e.preventDefault(); // prevents page reloading
                 socket.emit('chat_message', $('#txt').val());
-                $('#txt').val('');
-                return false;
+                $('#txt').val('');      
             });
             // append the chat text message
             socket.on('chat_message', function(msg){
