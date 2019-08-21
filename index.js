@@ -13,7 +13,7 @@ var online_users = 1
 var total_messages = 0
 var users = [];
 
-io.sockets.on('connection', function(socket) {
+io.on('connection', function(socket) {
     socket.on('username', function(username) {
         socket.username = username;
         io.emit('is_online', '🔵 <i>' + socket.username + ' join the chat..</i>');
