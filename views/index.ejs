@@ -38,17 +38,10 @@
   <body>
     <ul id="messages"></ul>
     <form action="/" method="POST" id="chatForm">
-	<!--h1>Login</h1-->
-	
-	<!--label for="email"><b>Username</b></label-->
-      <input id="txt" autocomplete="off" autofocus="on" oninput="isTyping()" placeholder="type here..." required />
-      <!--input id="pass" autocomplete="off" autofocus="on" oninput="isTyping()" placeholder="type your password here..." /-->
-     <button>Send</button>
-     <!--button type="button" class="btn cancel" onclick="closeForm()">Close</button-->
-	
+    <input id="txt" autocomplete="off" autofocus="on" oninput="isTyping()" placeholder="type your message here..." /><button>Send</button>
     </form>
     <script>
-            var socket = io.connect('https://r4y-message.herokuapp.com/');
+            var socket = io.connect('http://r4y-message.herokuapp.com/');
 	var userList = [];
 
     socket.on('update', function (users){
