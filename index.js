@@ -5,8 +5,6 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 
-server.listen(process.env.PORT || 3000);
-
 
 app.get('/', function(req, res) {
     res.render('index.ejs');
