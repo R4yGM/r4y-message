@@ -32,7 +32,7 @@
         #messages li { padding: 5px 10px; }
         #messages li:nth-child(odd) { background: #1f1e1e; width: 95%}
     </style>
-    <script src="https://r4y-message.herokuapp.com/socket.io/socket.io.js"></script>
+    <script src="../../socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
   </head>
   <body>
@@ -41,7 +41,7 @@
     <input id="txt" autocomplete="off" autofocus="on" oninput="isTyping()" placeholder="type your message here..." /><button>Send</button>
     </form>
     <script>
-            var socket = io.connect('http://r4y-message.herokuapp.com/');
+            var socket = io.connect('https://r4y-message.herokuapp.com/');
 	var userList = [];
 
     socket.on('update', function (users){
