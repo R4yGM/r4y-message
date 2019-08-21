@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies" : {  
     "connect": "^3.7.0",
+    "ejs": "^2.6.2",
     "express": "^4.17.1",
     "http": "0.0.0",
     "socket.io": "^2.2.0"
