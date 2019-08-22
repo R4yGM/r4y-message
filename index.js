@@ -67,9 +67,9 @@ io.on('connection', function(socket) {
 //});
 
 
-http.listen((process.env.PORT || 5000), function(){
- console.log('listening on *:5000');
-});
+//http.listen((process.env.PORT || 5000), function(){
+// console.log('listening on *:5000');
+//});
 /*server.listen(3000,"https://r4y-message.herokuapp.com/", function() {
   console.log('Listening on port ' + port);
 });*/
