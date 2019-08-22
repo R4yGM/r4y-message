@@ -42,7 +42,7 @@
     </form>
     <script>
             //var socket = io.connect('https://r4y-message.herokuapp.com');
-	    var socket = io.connect(window.location.hostname);
+	    var socket = io.connect();
 	var userList = [];
 
     socket.on('update', function (users){
