@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 //const INDEX = path.join("/views", 'index.ejs');
 
 const server = express()
-  .use((req, res) => res.sendFile("index.ejs", { root:"views" }) )
+  .use((req, res) => res.render("index.ejs", { root:"views" }) )
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 const io = socketIO(server);
