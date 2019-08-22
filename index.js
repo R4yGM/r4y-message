@@ -10,10 +10,10 @@ const socketIO = require('socket.io');
 //    res.render('index.ejs');
 //});
 const PORT = process.env.PORT || 3000;
-//const INDEX = path.join(__dirname, 'index.ejs');
+//const INDEX = path.join("/views", 'index.ejs');
 
 const server = express()
-  .use((req, res) => res.sendFile("views/index.ejs") )
+  .use((req, res) => res.sendFile("/views/index.ejs") )
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 const io = socketIO(server);
