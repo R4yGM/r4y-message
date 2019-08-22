@@ -2,13 +2,23 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 //const io = require('socket.io')(http);
-const io = require('socket.io')(http);
+const socketIO = require('socket.io');
 
 
 
-app.get('/', function(req, res) {
-    res.render('index.ejs');
-});
+//app.get('/', function(req, res) {
+//    res.render('index.ejs');
+//});
+const PORT = process.env.PORT || 3000;
+const INDEX = path.join(__dirname, 'index.ejs');
+
+const server = express()
+  .use((req, res) => res.sendFile(INDEX) )
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
+
+const io = socketIO(server);
+
+
 var online_users = 1
 var total_messages = 0
 var users = [];
