@@ -60,7 +60,7 @@
                 e.preventDefault(); // prevents page reloading
                 socket.emit('chat_message', $('#txt').val());
                 $('#txt').val('');
-		return false;
+		//return false;
             });
             // append the chat text message
             socket.on('chat_message', function(msg){
@@ -76,5 +76,5 @@
     </script>
   </body>
 
-<script src="r4y-message/index.js"></script>
+<script src="index.js"></script>
 </html>
