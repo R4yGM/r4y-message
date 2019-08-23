@@ -37,6 +37,8 @@ io.on('connection', function(socket) {
     });
 
     socket.on('disconnect', function(username) {
+	  if(socket.username != "undefined")
+	  {
         io.emit('is_online', '🔴 <i>' + socket.username + ' left the chat..</i>');
 	console.log("Disconnected "+ socket.username)
 	online_users = online_users - 1
@@ -48,6 +50,7 @@ io.on('connection', function(socket) {
             }
         }
         updateClients(); 
+	  }
     })
 
     socket.on('chat_message', function(message) {
