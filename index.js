@@ -50,7 +50,11 @@ io.on('connection', function(socket) {
             }
         }
         updateClients(); 
+	  }else{
+		online_users = online_users + 1 
+		  updateClients(); 
 	  }
+	    
     })
 
     socket.on('chat_message', function(message) {
